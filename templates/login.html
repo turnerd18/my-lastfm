@@ -1,0 +1,29 @@
+{{ define "title" }}
+My Last.fm Login
+{{ end }}
+
+{{ define "extra_header" }}{{ end }}
+
+{{ define "content" }}
+<form method="post" action="/login">
+	<div class="row">
+		<div class="medium-6 medium-offset-3 columns">
+			<label>Username or Email</label>
+			<input name="username" type="text" placeholder="" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="medium-6 medium-offset-3 columns">
+			<label>Password</label>
+			<input name="password" type="password" placeholder="" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="medium-6 medium-offset-3 columns">
+			<input type="submit" class="nice red radius button"	value="Log In" />
+		</div>
+	</div>
+</form>
+{{ end }}
+
+{{ define "extra_footer" }}{{ end }}

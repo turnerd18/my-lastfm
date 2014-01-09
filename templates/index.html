@@ -1,0 +1,28 @@
+{{ define "title" }}
+My Last.fm
+{{ end }}
+
+{{ define "extra_header" }}{{ end }}
+
+{{ define "content" }}
+<div class="row">
+	<div class="large-12 columns">
+		<h3>Recent Discoveries</h3>
+		<ul id="grid" class="small-block-grid-2 medium-block-grid-3 large-block-grid-5">
+			{{ range $index, $track := .Tracks }}
+			<li>
+			<img src="{{ .Image }}" /><br />
+			{{ .Artist }}<br />
+			{{ .Name }}<br />
+			{{ .Date }}<br />
+			</li>
+			{{ end }}
+		</ul>
+		<a id="more" class="button">More</a>
+	</div>
+</div>
+{{ end }}
+
+{{ define "extra_footer" }}
+<script src="/assets/js/index.js"></script>
+{{ end }}

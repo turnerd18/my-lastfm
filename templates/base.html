@@ -1,0 +1,60 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{{ template "title" . }}</title>
+    <link rel="stylesheet" href="/assets/css/foundation.css" />
+		<link rel="stylesheet" href="/assets/css/mylastfm.css" />
+    <script src="/assets/js/modernizr.js"></script>
+		{{ template "extra_header" . }}
+  </head>
+	<body>
+		<nav class="top-bar" data-topbar>
+		<ul class="title-area">
+			<li class="name">
+			<h1><a href="/">My Last.fm</a></h1>
+			</li>
+			<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+		</ul>
+
+		<section class="top-bar-section">
+		<!-- Left Nav Section -->
+		<ul class="left">
+			{{ with .Username }}
+			<li><a href="/recenttracks">Recent Tracks</a></li>
+			{{ end }}
+		</ul>
+
+		<!-- Right Nav Section -->
+		<ul class="right">
+			{{ with .Username }}
+			<li class="has-dropdown">
+			<a href="">Hi {{ . }}</a>
+			<ul class="dropdown">
+				<li><a href="/logout">Logout</a></li>
+			</ul>
+			</li>
+			{{ else }}
+			<li><a href="/login">Login</a></li>
+			{{ end }}
+		</ul>
+		</section>
+		</nav>
+		
+		<div class="row">
+			<div class="large-12 columns">
+				<h1>{{ template "title" . }}</h1>
+			</div>
+		</div>
+
+		{{ template "content" . }}
+
+		<script src="/assets/js/jquery.js"></script>
+		<script src="/assets/js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+		{{ template "extra_footer" . }}
+	</body>
+</html>

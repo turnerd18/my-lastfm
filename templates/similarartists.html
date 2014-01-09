@@ -1,0 +1,28 @@
+{{ define "title" }}
+Artists similar to {{ .Artist }}
+{{ end }}
+
+{{ define "extra_header" }}{{ end }}
+
+{{ define "content" }}
+<div class="row">
+	<div class="large-12 columns">
+		<dl class="accordion" data-accordion>
+			{{range $index, $artist := .Artists}}
+			<dd>
+			<a href="#panel{{$index}}">
+				<img src="{{$thumb := index $artist.Image 0}}{{$thumb.Text}}" />
+				{{$artist.Name}}
+			</a>
+			<div id="panel{{$index}}" class="content">
+				<p>Profile on <a href="http://{{$artist.URL}}/">Last.fm</a></p>
+				<img src="{{$img := index $artist.Image 2}}{{$img.Text}}" />
+			</div>
+			</dd>
+			{{end}}
+		</dl>
+	</div>
+</div>
+{{ end }}
+
+{{ define "extra_footer" }}{{ end }}

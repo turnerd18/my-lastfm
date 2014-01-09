@@ -1,0 +1,15 @@
+.month {
+	background-color: #c60f13;
+	border-radius: 22px;
+	color: #ffffff;
+	font-weight: bolder;
+	padding-left: 25px;
+	margin-bottom: 15px;
+	margin-top: 20px;
+}
+
+.month > h3 {
+	color: #ffffff;
+	font-weight: bolder;
+	text-align: center;
+}

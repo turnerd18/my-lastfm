@@ -1,0 +1,36 @@
+{{ $limit := .Limit }}
+{{ range $index, $track := .Tracks }}
+<dd>
+<a href="#panel{{ add $limit $index }}">
+	<div class="row">
+		<div class="small-2 medium-1 columns" style="padding-right: 0px !important">
+			<img src="{{ .Image }}" />
+		</div>
+		<div class="small-10 medium-11 columns">
+			<div class="row">
+				<div class="medium-3 columns">
+					{{ .Artist }}
+				</div>
+				<div class="medium-6 columns">
+					{{ .Name }}
+				</div>
+				<div class="medium-3 columns">
+					{{ .Date }}
+				</div>
+			</div>
+		</div>
+	</div>
+</a>
+<div id="panel{{ add $limit $index }}" class="content">
+	<div class="row">
+		<div class="medium-8 large-6 columns">
+			<p>Profile on <a href="#">Last.fm</a></p>
+			<p>Album: {{ .Album }}</p>
+		</div>
+		<div class="medium-4 large-6 columns">
+			<img />
+		</div>
+	</div>
+</div>
+</dd>
+{{ end }}

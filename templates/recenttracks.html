@@ -1,0 +1,32 @@
+{{ define "title" }}
+My Last.fm
+{{ end }}
+
+{{ define "extra_header" }}{{ end }}
+
+{{ define "content" }}
+<div class="row">
+	<div class="large-12 columns">
+		<div class="panel">
+			<h3>Here's your recent tracks</h3>
+			<div class="row">
+				{{ range .Tracks }}
+				<div class="large-4 medium-6 columns">
+					<p>
+					<a href="{{ .URL }}">
+						<img src="{{$thumb := index .Image 2}}{{$thumb.Text}}" /><br />
+						{{ .Name }}
+					</a><br />
+					{{ .Artist.Text }}<br />
+					{{ .Album.Text }}<br />
+					{{ .Date.Text }}<br />
+					</p>
+				</div>
+				{{ end }}
+			</div>
+		</div>
+	</div>
+</div>
+{{ end }}
+
+{{ define "extra_footer" }}{{ end }}
